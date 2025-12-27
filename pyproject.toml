@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Flask-extended-config"
+dynamic = [ "version" ]
+description = "Extended configuration using YAML files"
+readme = "README.md"
+authors = [{ name = "Marc Bertens-Nguyen", email = "m.bertens@pe2mbs.nl" }]
+maintainers = [{ name = "Marc Bertens-Nguyen", email = "m.bertens@pe2mbs.nl" }]
+license = "	GPL-2.0-only"
+license-files = ["LICENSE", "AUTHORS" ]
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Environment :: Web Environment',
+    'Intended Audience :: Developers',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    "Framework :: Flask",
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+]
+keywords = [ "flask", "redis" ]
+requires-python = ">= 3.8"
+dependencies = [
+    "flask>=2.0",
+    "werkzeug>=2.0",
+    "orjson",
+    "redis>=7.0.0",
+    "pydantic>=2.0",
+    "pyyaml>=6.0"
+]
+
+[project.optional-dependencies]
+
+[project.urls]
+Repository      = "https://github.com/pe2mbs/flask-redis-multi"
+Documentation   = "https://github.com/pe2mbs/flask-redis-multi/wiki"
+Changes         = "https://github.com/pe2mbs/flask-redis-multi/releases.md"
+Issues          = "https://github.com/pe2mbs/flask-redis-multi/issues"
+Donwload        = "https://pypi.org/...."
