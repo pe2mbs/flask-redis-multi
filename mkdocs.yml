@@ -1,0 +1,22 @@
+site_name: Flask Multi Redis
+theme:
+  name:         readthedocs
+  highlightjs:  true
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        # See: https://mkdocstrings.github.io/python/usage/
+        python:
+          paths: [ src ]
+          inventories:
+            - https://docs.python.org/3/objects.inv
+          options:
+            docstring_style: python
+          inherited_members: true
+          summary: true
+          heading_level: 1
+markdown_extensions:
+  - markdown_include.include:
+      base_path: .
+  - admonition
