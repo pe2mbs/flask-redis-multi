@@ -1,7 +1,10 @@
-from flask_multi_redis.client import RedisCore, IRedisSimpleConfig, FlaskRedisSingle, IFlaskRedisMultiConfig, FlaskRedisMulti, RedisSession
+from flask_multi_redis.multi import FlaskRedisMulti
+from flask_multi_redis.single import FlaskRedisSingle
+from flask_multi_redis.core import RedisCore
+from flask_multi_redis.config import IFlaskRedisMultiConfig, IRedisSimpleConfig
 
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 __title__ = "flask-redis"
 __description__ = "A flask extension to communicate with REDIS from a flask application"
@@ -14,4 +17,4 @@ __email__ = "m.bertens@pe2mbs.nl"
 __license__ = "GPL-2.0-only"
 __copyright__ = "Copyright (c) 2025 Marc Bertens"
 
-__all__ = [ 'RedisCore', 'IRedisSimpleConfig', 'FlaskRedisSingle', 'IFlaskRedisMultiConfig', 'FlaskRedisMulti', 'RedisSession' ]
+__all__ = [ 'FlaskRedisMulti', 'FlaskRedisSingle', 'RedisCore', 'IFlaskRedisMultiConfig', 'IRedisSimpleConfig' ]

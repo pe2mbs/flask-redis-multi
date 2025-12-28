@@ -7,8 +7,11 @@ strings, hashes, lists, sets, sorted sets, and JSON), with atomic operations def
 
 This package is released under GPL2 only.
 
+This package is created to support multiple databases in the flask web application, that support multiple backend 
+processes. This to separate the data attributes per backend process. 
+
 # Examples
-The following examples are just simple examples, for more detailed examples see the tests folder.
+The following examples are just simple examples, for more detailed examples see the Documentation section.
 
 ## Single database connection
 In the flask startup logic for FlaskRedisSingle class; 
@@ -30,8 +33,7 @@ REDIS:
   PORT:       6379
 ```
 
-## Single database connection
-
+## Multi database connection
 In the flask startup logic for FlaskRedisMulti class; 
 
 ```python
@@ -78,7 +80,64 @@ Posting a message on the broker and wait for a reply
 
 ```
 
+NOTE: The broker functions with the database, this means that publish and subscribes are independent from 
+      the selected database. 
+
 # Documentation
+
+## FlaskRedisSingle class
+### FlaskRedisSingle.__init__( self, app: t.Optional[ t.Union[ 'Flask', dict, IRedisSimpleConfig ] ] = None, strict: t.Optional[ bool ] = True, config_element: t.Optional[ str ] = "REDIS", prefix: t.Optional[ str ] = None,  **kwargs )       
+Create a single redis database connection.
+
+parameter 'app' can be a Flask application instance, or dictionary containing the configuration, or IRedisSimpleConfig pydantic class with the configuration.
+parameter 'strict' is a boolean flag determines the redis.Redis or redis.StrictRedis class to be used for the connection, default is True, therefor redis.StrictRedis is used.
+parameter 'config_element' is used when the Flask configuration is used to find the section, default is "REDIS".
+parameter 'prefix' is an optional name that is prefix to the publish and subscription names to avoid conflicts between different environments running though the same redis server.   
+'kwargs' are optional keyword arguments that are passed to the redis.Redis or redis.StrictRedis class.
+
+#### Example instantiate with Flask application:
+```yaml
+REDIS:
+    SCHEMA:     rediss
+    HOST:       localhost.localdomain
+    PORT:       6379
+    DATABASE:   0
+    NAME:       General  
+    PASSWORD:   secure-password
+```
+
+```python
+    FlaskRedisSingle( app )
+```
+#### Example instantiate with dictionary
+
+```python
+    config = {
+        'URL': 'rediss://localhost.localdomain:6379',
+        'DATABASE': 0,
+        'NAME': 'General',  
+        'PASSWORD': 'secure-password'
+    }
+    redis_instance = FlaskRedisSingle( config )
+    redis_instance.init_app( app )
+```
+
+#### Example instantiate with IRedisSimpleConfig
+
+```python
+    config = IRedisSimpleConfig( URL = 'rediss://localhost.localdomain:6379',
+                                 DATABASE = 0, NAME = 'General', PASSWORD = 'secure-password' )
+    redis_instance = FlaskRedisSingle( config )
+    redis_instance.init_app( app )
+```
+
+
+
+
+
+
+
+
 
 # Installation
 To install Flask-Db-Admin using pip, simply:
