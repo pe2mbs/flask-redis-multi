@@ -17,7 +17,7 @@ __all__ = [ 'RedisCore' ]
 logger = logging.getLogger( 'flask_redis.core' )
 
 
-class RedisCore(object):
+class RedisCore( object ):
     """This is the Redis core class that handles all the core operations towards the Redis server.
     """
     def __init__( self, config: t.Optional[ t.Union[ dict, IRedisSimpleConfig ] ] = None,

@@ -44,3 +44,15 @@ Documentation   = "https://github.com/pe2mbs/flask-redis-multi/wiki"
 Changes         = "https://github.com/pe2mbs/flask-redis-multi/releases.md"
 Issues          = "https://github.com/pe2mbs/flask-redis-multi/issues"
 Donwload        = "https://pypi.org/...."
+
+
+[tool.pydoctor]
+add-package = ["src/flask_multi_redis"]
+# intersphinx = ["https://docs.python.org/3/objects.inv",
+#               "https://docs.twisted.org/en/stable/api/objects.inv"]
+# intersphinx-file = ["/tmp/project/docs/objects.inv :: https://protected.docs/project/api"]
+docformat = "restructuredtext"
+verbose = 1
+warnings-as-errors = true
+privacy = ["HIDDEN:pydoctor.test",
+           "PUBLIC:pydoctor._configparser",]

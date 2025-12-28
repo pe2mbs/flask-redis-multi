@@ -6,9 +6,10 @@ import orjson
 import redis
 import redis.client
 from flask import Flask
+from flask_multi_redis.core import RedisCore
+from flask_multi_redis.config import IRedisSimpleConfig
+from flask_multi_redis.exc import RedisDatabaseNotAvailable, FlaskAppNotProvided
 
-from flask_multi_redis.exc import RedisAlreadyConfigured, RedisDatabaseNotAvailable, NoSubscriptionPubisher, \
-    FlaskAppNotProvided, InvalidRedisDatabase
 
 __all__ = [ 'FlaskRedisMulti' ]
 logger = logging.getLogger( 'flask_redis.multi' )

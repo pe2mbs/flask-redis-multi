@@ -1,10 +1,11 @@
 import typing as t
 import logging
 import redis
+from flask import Flask
 from flask_multi_redis.config import IRedisSimpleConfig
 from flask_multi_redis.core import RedisCore
 from flask_multi_redis.exc import InvalidRedisDatabase
-from flask import Flask
+
 
 
 __all__ = [ 'FlaskRedisSingle' ]
