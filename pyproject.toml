@@ -3,9 +3,9 @@ requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "Flask-extended-config"
+name = "flask-redis-multi"
 dynamic = [ "version" ]
-description = "Extended configuration using YAML files"
+description = "Simple-to-use Flask extension provide support for Redis. It can be configured for a single database or multiple databases."
 readme = "README.md"
 authors = [{ name = "Marc Bertens-Nguyen", email = "m.bertens@pe2mbs.nl" }]
 maintainers = [{ name = "Marc Bertens-Nguyen", email = "m.bertens@pe2mbs.nl" }]
@@ -47,12 +47,10 @@ Donwload        = "https://pypi.org/...."
 
 
 [tool.pydoctor]
-add-package = ["src/flask_multi_redis"]
-# intersphinx = ["https://docs.python.org/3/objects.inv",
-#               "https://docs.twisted.org/en/stable/api/objects.inv"]
+add-package = ["src/flask-redis-multi"]
+intersphinx = ["https://docs.python.org/3/objects.inv",]
 # intersphinx-file = ["/tmp/project/docs/objects.inv :: https://protected.docs/project/api"]
 docformat = "restructuredtext"
 verbose = 1
 warnings-as-errors = true
-privacy = ["HIDDEN:pydoctor.test",
-           "PUBLIC:pydoctor._configparser",]
+privacy = []

@@ -1,4 +1,4 @@
-site_name: Flask Multi Redis
+site_name: Flask Redis Multi
 theme:
   name:         readthedocs
   highlightjs:  true
@@ -17,6 +17,6 @@ plugins:
           summary: true
           heading_level: 1
 markdown_extensions:
-  - markdown_include.include:
-      base_path: .
+#  - markdown_include.include:
+#      base_path: .
   - admonition
